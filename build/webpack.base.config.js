@@ -1,6 +1,6 @@
 const path = require('path')
 const projectRoot = path.resolve(__dirname, '../')
-const vueConfig = require('./vue-loader.config')
+let utils = require('./utils')
 
 module.exports = {
   devtool: '#source-map',
@@ -41,7 +41,7 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: 'vue-loader',
-        options: vueConfig
+        options: utils.cssLoaders()
       },
       {
         test: /\.js$/,

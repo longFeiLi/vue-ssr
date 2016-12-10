@@ -1,13 +1,15 @@
 <template>
   <div>
-    <div v-for="topic in topics">
-      <p>{{topic.title}}</p>
-    </div>
+     <p>222222222222222</p>
+     <div class="p-list">
+       <item-list v-for="list in topics" :item="list"></item-list>
+     </div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+import ItemList from './itemList'
 
 const fetchInitialData = store => {
   return store.dispatch(`getTopics`)
@@ -19,8 +21,11 @@ export default {
       topics: 'getTopics'
     })
   },
-  mounted () {
+  beforeMount () {
     fetchInitialData(this.$store)
+  },
+  components: {
+    ItemList
   }
 }
 </script>
